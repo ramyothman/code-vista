@@ -1,0 +1,112 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.ComponentModel;
+using Qiyas.BusinessLogicLayer.Entity;
+
+namespace BusinessLogicLayer.Entities.<%$$ SchemaName $$%>
+{
+    [DataObject(true)]
+	[Serializable]
+    public class <%$$ TableName $$%> : EntityBase<Qiyas.DataAccessLayer.<%$$ TableName $$%>>
+    {
+        #region Constructors
+        public <%$$ TableName $$%>()
+        {
+            this.entity = new Qiyas.DataAccessLayer.<%$$ TableName $$%>();
+            isNew = true;
+        }
+
+        public <%$$ TableName $$%>([$$ <%$$ TableColumn(PK),DataType $$%> <%$$ TableColumn(PK),Name(FL) $$%> $$])
+        {
+			this.entity = context.<%$$ TableName $$%>s.Where([$$p => p.<%$$ TableColumn(PK),Name $$%> == <%$$ TableColumn(PK),Name(FL) $$%> $$]).FirstOrDefault();
+        }
+
+        internal <%$$ TableName $$%>(Qiyas.DataAccessLayer.<%$$ TableName $$%> entity)
+        {
+            this.entity = entity;
+        }
+        #endregion
+
+        #region Properties
+		[$$ 
+			/// <summary>
+			/// This Property represents the <%$$ TableColumn,Name(FU) $$%> which has <%$$ TableColumn,DataType $$%> type
+			/// </summary>
+			
+            public <%$$ TableColumn,DataType $$%> <%$$ TableColumn,Name(FU) $$%>
+            {
+                
+                set
+                {
+					this.entity.<%$$ TableColumn,Name $$%> = value;
+                }
+                get
+                {
+                    return this.entity.<%$$ TableColumn,Name $$%>;
+                }
+            }
+        <%$$ NewLine $$%>
+        $$]
+        #endregion
+
+		#region Methods
+        internal override bool? Save(Qiyas.DataAccessLayer.QiyasLinqDataContext context, bool commit)
+        {
+            if (isNew)
+            {
+                context.<%$$ TableName $$%>s.InsertOnSubmit(this.entity);
+            }
+            else
+            {
+                
+            }
+            if (commit)
+                try
+                {
+                    context.SubmitChanges();
+                    isNew = false;
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    lastException = ex;
+                    return false;
+                }
+            else
+                return null;
+
+        }
+        internal override bool? Delete(Qiyas.DataAccessLayer.QiyasLinqDataContext context, bool commit)
+        {
+            if (!isNew)
+                context.<%$$ TableName $$%>s.DeleteOnSubmit(this.entity);
+            else
+                return false;
+            if (commit)
+                try
+                {
+                    context.SubmitChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    lastException = ex;
+                    return false;
+                }
+            else
+                return null;
+        }
+        public bool Save()
+        {
+            return Save(context, true).Value;
+        }
+        public bool Delete()
+        {
+            return Delete(context, true).Value;
+        }
+        #endregion
+        
+    }
+}

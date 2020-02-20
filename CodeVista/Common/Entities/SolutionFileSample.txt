@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{2412ACA2-B117-400E-A4B6-255C7495AC36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicLayer", "BusinessLogicLayer\BusinessLogicLayer.csproj", "{9780330C-A161-4B6C-90AC-6377E158AE58}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AttendanceSite", "AttendanceSite\", "{1E523A5B-5126-4230-AB48-157C3F25C156}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		ProjectReferences = "{9780330C-A161-4B6C-90AC-6377E158AE58}|BusinessLogicLayer.dll;{2412ACA2-B117-400E-A4B6-255C7495AC36}|DataAccessLayer.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/AttendanceSite"
+		Debug.AspNetCompiler.PhysicalPath = "AttendanceSite\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\AttendanceSite\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/AttendanceSite"
+		Release.AspNetCompiler.PhysicalPath = "AttendanceSite\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\AttendanceSite\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "4473"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2412ACA2-B117-400E-A4B6-255C7495AC36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2412ACA2-B117-400E-A4B6-255C7495AC36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2412ACA2-B117-400E-A4B6-255C7495AC36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2412ACA2-B117-400E-A4B6-255C7495AC36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9780330C-A161-4B6C-90AC-6377E158AE58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9780330C-A161-4B6C-90AC-6377E158AE58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9780330C-A161-4B6C-90AC-6377E158AE58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9780330C-A161-4B6C-90AC-6377E158AE58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E523A5B-5126-4230-AB48-157C3F25C156}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E523A5B-5126-4230-AB48-157C3F25C156}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E523A5B-5126-4230-AB48-157C3F25C156}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E523A5B-5126-4230-AB48-157C3F25C156}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
+

@@ -1,0 +1,267 @@
+﻿public static string ReplaceCommand(string input, string command, string replaceString)
+        {
+            string result = input;
+            Regex regInternal = new Regex(@"<%\$\$\s*" + command + @"\s*\$\$%>", RegexOptions.IgnoreCase);
+            Match matchInternal = regInternal.Match(result);
+            if (matchInternal.Success)
+            {
+                string value = matchInternal.Groups[0].Value;
+                result = result.Replace(value, replaceString);
+            }
+            //result = result.Replace("<%$$ " + command + " $$%>", replaceString);
+            //result = result.Replace("<%$$ " + command + "$$%>", replaceString);
+            //result = result.Replace("<%$$" + command + " $$%>", replaceString);
+            //result = result.Replace("<%$$" + command + "$$%>", replaceString);
+            return result;
+        }
+        
+        
+        public static StringBuilder ReplaceCommandBuilder(StringBuilder input, string command, string replaceString)
+        {
+            StringBuilder result = new StringBuilder(input.ToString());
+            Regex regInternal = new Regex(@"<%\$\$\s*" + command + @"\s*\$\$%>", RegexOptions.IgnoreCase);
+            Match matchInternal = regInternal.Match(result.ToString());
+            if (matchInternal.Success)
+            {
+                string value = matchInternal.Groups[0].Value;
+                result = result.Replace(value, replaceString);
+            }
+            //result = result.Replace("<%$$ " + command + " $$%>", replaceString);
+            //result = result.Replace("<%$$ " + command + "$$%>", replaceString);
+            //result = result.Replace("<%$$" + command + " $$%>", replaceString);
+            //result = result.Replace("<%$$" + command + "$$%>", replaceString);
+            return result;
+        }...
+        
+        
+        
+        private string GetPrimaryKeyParameters(string input, Entities.MetaDataSchema.Table table)
+        {
+            StringBuilder result = new StringBuilder();
+            int index = 0;
+            foreach (Entities.MetaDataSchema.Column col in table.Columns)
+            {
+                if (col.IsPrimary)
+                {
+                    string tempValue = input;
+                    string dataType = GetDataType(col);
+                    
+
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnParamCommand, GeneratorCommands.DataTypeCommand, GeneratorCommands.PrimaryKeyOption, "", dataType);
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnParamCommand, GeneratorCommands.LibraryTypeCommand, GeneratorCommands.PrimaryKeyOption, "", col.ColumnDataType.LibraryType);
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnParamCommand, GeneratorCommands.DataTypeLengthCommand, GeneratorCommands.PrimaryKeyOption, "", GetDataTypeLength(col));
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnParamCommand, GeneratorCommands.NameCommand, GeneratorCommands.PrimaryKeyOption, "", col.Name);
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnParamCommand, GeneratorCommands.NameCommand, GeneratorCommands.PrimaryKeyOption, GeneratorCommands.LowerCaseOption, col.Name.ToLower());
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnParamCommand, GeneratorCommands.NameCommand, GeneratorCommands.PrimaryKeyOption, GeneratorCommands.UpperCaseOption, col.Name.ToUpper());
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnParamCommand, GeneratorCommands.NameCommand, GeneratorCommands.PrimaryKeyOption, GeneratorCommands.FirstLowerOption, FirstLetterLower(col.Name));
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnParamCommand, GeneratorCommands.NameCommand, GeneratorCommands.PrimaryKeyOption, GeneratorCommands.FirstUpperOption, FirstLetterUpper(col.Name));
+
+                    
+                    //Regex regReplace = new Regex(@"<%\$\$\s*TableColumnParam\(PK\)\s*,\s*DataType\s*\$\$%>", RegexOptions.IgnoreCase);
+
+                    //tempValue = regReplace.Replace(tempValue, dataType);
+                    //regReplace = new Regex(@"<%\$\$\s*TableColumnParam\(PK\)\s*,\s*Name\s*\$\$%>", RegexOptions.IgnoreCase);
+                    //tempValue = regReplace.Replace(tempValue, col.Name);
+
+
+                    //regReplace = new Regex(@"<%\$\$\s*TableColumnParam\s*,\s*Name\s*\(L\)\s*\$\$%>", RegexOptions.IgnoreCase);
+                    //tempValue = regReplace.Replace(tempValue, col.Name.ToLower());
+
+                    //regReplace = new Regex(@"<%\$\$\s*TableColumnParam\s*,\s*Name\s*\(U\)\s*\$\$%>", RegexOptions.IgnoreCase);
+                    //tempValue = regReplace.Replace(tempValue, col.Name.ToUpper());
+
+                    //regReplace = new Regex(@"<%\$\$\s*TableColumnParam\s*,\s*Name\s*\(FL\)\s*\$\$%>", RegexOptions.IgnoreCase);
+                    //tempValue = regReplace.Replace(tempValue, FirstLetterLower(col.Name));
+
+                    //regReplace = new Regex(@"<%\$\$\s*TableColumnParam\s*,\s*Name\s*\(FU\)\s*\$\$%>", RegexOptions.IgnoreCase);
+                    //tempValue = regReplace.Replace(tempValue, FirstLetterUpper(col.Name));
+
+                    //tempValue = RemoveEnvelope(tempValue);
+
+                    //regReplace = new Regex(@"<%\$\$\s*TableColumnParam\s*,\s*LibraryType\s*\$\$%>", RegexOptions.IgnoreCase);
+                    //tempValue = regReplace.Replace(tempValue, col.ColumnDataType.LibraryType);
+
+                    //regReplace = new Regex(@"<%\$\$\s*TableColumnParam\s*,\s*DataTypeLength\s*\$\$%>", RegexOptions.IgnoreCase);
+                    //tempValue = regReplace.Replace(tempValue, GetDataTypeLength(col));
+                    if (index < (table.PrimaryColumnCount - 1))
+                    {
+                        tempValue += parameterSeperator;
+                        //result.Append(ParameterSeperator);
+                    }
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.NewLineCommand, GeneratorCommands.NewLineValue);
+                    tempValue = RemoveEnvelope(tempValue);
+                    result.Append(tempValue);
+                    index++;
+                }
+            }
+            return result.ToString();
+        }
+        
+        
+        private string GetNormalParameters(string input, Entities.MetaDataSchema.Table table)
+        {
+            StringBuilder result = new StringBuilder();
+            int index = 0;
+            foreach (Entities.MetaDataSchema.Column col in table.Columns)
+            {
+                string tempValue = input;
+                
+                string dataType = GetDataType(col);
+
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnParamCommand, GeneratorCommands.DataTypeCommand, "", "", dataType);
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnParamCommand, GeneratorCommands.NameCommand, "", "", col.Name);
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnParamCommand, GeneratorCommands.NameCommand,"", GeneratorCommands.LowerCaseOption, col.Name.ToLower());
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnParamCommand, GeneratorCommands.NameCommand,"", GeneratorCommands.UpperCaseOption, col.Name.ToUpper());
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnParamCommand, GeneratorCommands.NameCommand,"", GeneratorCommands.FirstLowerOption,  FirstLetterLower(col.Name));
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnParamCommand, GeneratorCommands.NameCommand,"", GeneratorCommands.FirstUpperOption, FirstLetterUpper(col.Name));
+
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnParamCommand, GeneratorCommands.LibraryTypeCommand,"", "", col.ColumnDataType.LibraryType);
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnParamCommand, GeneratorCommands.DataTypeLengthCommand, "", "", GetDataTypeLength(col));
+
+                //Regex regReplace = new Regex(@"<%\$\$\s*TableColumnParam\s*,\s*DataType\s*\$\$%>", RegexOptions.IgnoreCase);
+                //tempValue = regReplace.Replace(tempValue, dataType);
+
+
+                //regReplace = new Regex(@"<%\$\$\s*TableColumnParam\s*,\s*Name\s*\$\$%>", RegexOptions.IgnoreCase);
+                //tempValue = regReplace.Replace(tempValue, col.Name);
+
+                //regReplace = new Regex(@"<%\$\$\s*TableColumnParam\s*,\s*Name\s*\(L\)\s*\$\$%>", RegexOptions.IgnoreCase);
+                //tempValue = regReplace.Replace(tempValue, col.Name.ToLower());
+
+                //regReplace = new Regex(@"<%\$\$\s*TableColumnParam\s*,\s*Name\s*\(U\)\s*\$\$%>", RegexOptions.IgnoreCase);
+                //tempValue = regReplace.Replace(tempValue, col.Name.ToUpper());
+
+                //regReplace = new Regex(@"<%\$\$\s*TableColumnParam\s*,\s*Name\s*\(FL\)\s*\$\$%>", RegexOptions.IgnoreCase);
+                //tempValue = regReplace.Replace(tempValue, FirstLetterLower(col.Name));
+
+                //regReplace = new Regex(@"<%\$\$\s*TableColumnParam\s*,\s*Name\s*\(FU\)\s*\$\$%>", RegexOptions.IgnoreCase);
+                //tempValue = regReplace.Replace(tempValue, FirstLetterUpper(col.Name));
+
+                //regReplace = new Regex(@"<%\$\$\s*TableColumnParam\s*,\s*LibraryType\s*\$\$%>", RegexOptions.IgnoreCase);
+                //tempValue = regReplace.Replace(tempValue, col.ColumnDataType.LibraryType);
+
+                //regReplace = new Regex(@"<%\$\$\s*TableColumnParam\s*,\s*DataTypeLength\s*\$\$%>", RegexOptions.IgnoreCase);
+                //tempValue = regReplace.Replace(tempValue, GetDataTypeLength(col));
+
+                if (index < (table.Columns.Count - 1))
+                {
+                    tempValue += parameterSeperator;
+                }
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.NewLineCommand, GeneratorCommands.NewLineValue);
+                tempValue = RemoveEnvelope(tempValue);
+                result.Append(tempValue);
+                index++;
+            }
+            return result.ToString();
+        }
+        
+        
+        private string GetNormalTableColumnRow(string input, Entities.MetaDataSchema.Table table)
+        {
+            StringBuilder result = new StringBuilder();
+            int index = 0;
+            foreach (Entities.MetaDataSchema.Column col in table.Columns)
+            {
+                string tempValue = input;
+                string dataType = GetDataType(col);
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnCommand, GeneratorCommands.DataTypeCommand, "", "", dataType);
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnCommand, GeneratorCommands.NameCommand, "", "", col.Name);
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnCommand, GeneratorCommands.NameCommand,"", GeneratorCommands.LowerCaseOption, col.Name.ToLower());
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnCommand, GeneratorCommands.NameCommand,"", GeneratorCommands.UpperCaseOption, col.Name.ToUpper());
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnCommand, GeneratorCommands.NameCommand,"", GeneratorCommands.FirstLowerOption, FirstLetterLower(col.Name));
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnCommand, GeneratorCommands.NameCommand,"", GeneratorCommands.FirstUpperOption, FirstLetterUpper(col.Name));
+
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnCommand, GeneratorCommands.LibraryTypeCommand, "", "", col.ColumnDataType.LibraryType);
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnCommand, GeneratorCommands.DataTypeLengthCommand, "", "", GetDataTypeLength(col));
+
+                //Regex regReplace = new Regex(@"<%\$\$\s*TableColumn\s*,\s*DataType\s*\$\$%>", RegexOptions.IgnoreCase);
+                
+                //tempValue = regReplace.Replace(tempValue, dataType);
+
+                //regReplace = new Regex(@"<%\$\$\s*TableColumn\s*,\s*LibraryType\s*\$\$%>", RegexOptions.IgnoreCase);
+                //tempValue = regReplace.Replace(tempValue, col.ColumnDataType.LibraryType);
+
+                //regReplace = new Regex(@"<%\$\$\s*TableColumn\s*,\s*DataTypeLength\s*\$\$%>", RegexOptions.IgnoreCase);
+                //tempValue = regReplace.Replace(tempValue, GetDataTypeLength(col));
+
+                //regReplace = new Regex(@"<%\$\$\s*TableColumn\s*,\s*Name\s*\$\$%>", RegexOptions.IgnoreCase);
+                //tempValue = regReplace.Replace(tempValue, col.Name);
+
+                //regReplace = new Regex(@"<%\$\$\s*TableColumn\s*,\s*Name\s*\(L\)\s*\$\$%>", RegexOptions.IgnoreCase);
+                //tempValue = regReplace.Replace(tempValue, col.Name.ToLower());
+
+                //regReplace = new Regex(@"<%\$\$\s*TableColumn\s*,\s*Name\s*\(U\)\s*\$\$%>", RegexOptions.IgnoreCase);
+                //tempValue = regReplace.Replace(tempValue, col.Name.ToUpper());
+
+                //regReplace = new Regex(@"<%\$\$\s*TableColumn\s*,\s*Name\s*\(FL\)\s*\$\$%>", RegexOptions.IgnoreCase);
+                //tempValue = regReplace.Replace(tempValue, FirstLetterLower(col.Name));
+
+                //regReplace = new Regex(@"<%\$\$\s*TableColumn\s*,\s*Name\s*\(FU\)\s*\$\$%>", RegexOptions.IgnoreCase);
+                //tempValue = regReplace.Replace(tempValue, FirstLetterUpper(col.Name));
+
+
+                tempValue = RemoveEnvelope(tempValue);
+
+                tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.NewLineCommand, GeneratorCommands.NewLineValue);
+                result.Append(tempValue);
+                index++;
+            }
+            return result.ToString();
+        }
+private string GetPrimaryKeyTableColumnRow(string input, Entities.MetaDataSchema.Table table)
+        {
+            StringBuilder result = new StringBuilder();
+            int index = 0;
+            foreach (Entities.MetaDataSchema.Column col in table.Columns)
+            {
+                if (col.IsPrimary)
+                {
+                    string tempValue = input;
+                    string dataType = GetDataType(col);
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnCommand, GeneratorCommands.DataTypeCommand, GeneratorCommands.PrimaryKeyOption, "", dataType);
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnCommand, GeneratorCommands.LibraryTypeCommand, GeneratorCommands.PrimaryKeyOption, "", col.ColumnDataType.LibraryType);
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnCommand, GeneratorCommands.DataTypeLengthCommand, GeneratorCommands.PrimaryKeyOption, "", GetDataTypeLength(col));
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnCommand, GeneratorCommands.NameCommand, GeneratorCommands.PrimaryKeyOption, "", col.Name);
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnCommand, GeneratorCommands.NameCommand, GeneratorCommands.PrimaryKeyOption, GeneratorCommands.LowerCaseOption, col.Name.ToLower());
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnCommand, GeneratorCommands.NameCommand, GeneratorCommands.PrimaryKeyOption, GeneratorCommands.UpperCaseOption, col.Name.ToUpper());
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnCommand, GeneratorCommands.NameCommand, GeneratorCommands.PrimaryKeyOption, GeneratorCommands.FirstLowerOption, FirstLetterLower(col.Name));
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.TableColumnCommand, GeneratorCommands.NameCommand, GeneratorCommands.PrimaryKeyOption, GeneratorCommands.FirstUpperOption, FirstLetterUpper(col.Name));
+
+
+                    //Regex regReplace = new Regex(@"<%\$\$\s*TableColumn\s*,\s*DataType\s*\$\$%>", RegexOptions.IgnoreCase);
+                    //
+                    //tempValue = regReplace.Replace(tempValue, dataType);
+
+                    //regReplace = new Regex(@"<%\$\$\s*TableColumn\s*,\s*DataTypeLibrary\s*\$\$%>", RegexOptions.IgnoreCase);
+                    //tempValue = regReplace.Replace(tempValue, col.ColumnDataType.LibraryType);
+
+                    //regReplace = new Regex(@"<%\$\$\s*TableColumn\s*,\s*DataTypeLength\s*\$\$%>", RegexOptions.IgnoreCase);
+                    //tempValue = regReplace.Replace(tempValue, GetDataTypeLength(col));
+
+
+
+                    //regReplace = new Regex(@"<%\$\$\s*TableColumn\s*,\s*Name\s*\$\$%>", RegexOptions.IgnoreCase);
+                    //tempValue = regReplace.Replace(tempValue, col.Name);
+
+                    //regReplace = new Regex(@"<%\$\$\s*TableColumn\s*,\s*Name\s*\(L\)\s*\$\$%>", RegexOptions.IgnoreCase);
+                    //tempValue = regReplace.Replace(tempValue, col.Name.ToLower());
+
+                    //regReplace = new Regex(@"<%\$\$\s*TableColumn\s*,\s*Name\s*\(U\)\s*\$\$%>", RegexOptions.IgnoreCase);
+                    //tempValue = regReplace.Replace(tempValue, col.Name.ToUpper());
+
+                    //regReplace = new Regex(@"<%\$\$\s*TableColumn\s*,\s*Name\s*\(FL\)\s*\$\$%>", RegexOptions.IgnoreCase);
+                    //tempValue = regReplace.Replace(tempValue, FirstLetterLower(col.Name));
+
+                    //regReplace = new Regex(@"<%\$\$\s*TableColumn\s*,\s*Name\s*\(FU\)\s*\$\$%>", RegexOptions.IgnoreCase);
+                    //tempValue = regReplace.Replace(tempValue, FirstLetterUpper(col.Name));
+
+
+
+                    tempValue = RemoveEnvelope(tempValue);
+                    tempValue = GeneratorCommands.ReplaceCommand(tempValue, GeneratorCommands.NewLineCommand, GeneratorCommands.NewLineValue);
+                    result.Append(tempValue);
+                    index++;
+                }
+            }
+            return result.ToString();
+        }

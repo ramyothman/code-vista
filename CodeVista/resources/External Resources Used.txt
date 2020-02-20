@@ -1,0 +1,9 @@
+Microsoft Enterprise Library
+
+
+Ribbon Control
+http://www.codeproject.com/KB/toolbars/WinFormsRibbon.aspx#xx3223150xx
+
+
+Dock Panel Suite
+http://sourceforge.net/projects/dockpanelsuite/

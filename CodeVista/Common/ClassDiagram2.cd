@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Common.Entities.Entity" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAAQAAAACAAAABAQAQAAgAAAAAAAAQBwAAYABA=</HashCode>
+      <FileName>Entities\Entity.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Common.Entities.MetaDataSchema.Column" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ASAAAqIBACBFAoAAAAIIAABAQAIAIAAEhkAAAAEAEDA=</HashCode>
+      <FileName>Entities\MetaDataSchema\Column.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.MetaDataSchema.Database" Collapsed="true">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QhAAEAAAAgAAAAAAAAAAQAIAAAAAAAACACAABAIIABg=</HashCode>
+      <FileName>Entities\MetaDataSchema\Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.MetaDataSchema.DataType" Collapsed="true">
+    <Position X="15.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAAABCAAACAAAjAAAEAQAAAAAAKABACAAIAAAAAgAA=</HashCode>
+      <FileName>Entities\MetaDataSchema\DataType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.MetaDataSchema.Function" Collapsed="true">
+    <Position X="24.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAEAAAAAAAAAAwEABAAACAAAIAQAAAIABg=</HashCode>
+      <FileName>Entities\MetaDataSchema\Function.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.MetaDataSchema.Project" Collapsed="true">
+    <Position X="28.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAEEAAAACAAEgAAIAAAACCABGCAQIBACAIAAA=</HashCode>
+      <FileName>Entities\MetaDataSchema\Project.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.MetaDataSchema.RelationShip" Collapsed="true">
+    <Position X="1.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAICgAAAAAAAAAAQAAAAIIAQAAAAAAAAIAhg=</HashCode>
+      <FileName>Entities\MetaDataSchema\RelationShip.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Common.Entities.MetaDataSchema.StoredProcedure" Collapsed="true">
+    <Position X="6.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAIAAEAAAAAAAAAAQUAAAAAACAAIBAAAAIABg=</HashCode>
+      <FileName>Entities\MetaDataSchema\StoredProcedure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.MetaDataSchema.Table" Collapsed="true">
+    <Position X="10.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAQBAAAAAIAAAAAAAAAUEAAQEAAAAAAAEAggIABg=</HashCode>
+      <FileName>Entities\MetaDataSchema\Table.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.MetaDataSchema.View" Collapsed="true">
+    <Position X="17.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQDAAAAAAAAAAAAAAAQEAAAAAAAAAAAAAAgIABA=</HashCode>
+      <FileName>Entities\MetaDataSchema\View.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.SourceCodeSchema.CompilerOptions" Collapsed="true">
+    <Position X="19.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAEAAEIAAAAAAAgAAAEAAAAABEAAA=</HashCode>
+      <FileName>Entities\SourceCodeSchema\CompilerOptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.SourceCodeSchema.ProjectFiles" Collapsed="true">
+    <Position X="26.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAABAAAAAAACAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\SourceCodeSchema\ProjectFiles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.SourceCodeSchema.ProjectFolder" Collapsed="true">
+    <Position X="31" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABBgKAAAAAAAAAAAAAAAAAAEAAAAAAEAAAAAIA=</HashCode>
+      <FileName>Entities\SourceCodeSchema\ProjectFolder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.SourceCodeSchema.ProjectReference" Collapsed="true">
+    <Position X="37" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\SourceCodeSchema\ProjectReference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.SourceCodeSchema.SolutionFile" Collapsed="true">
+    <Position X="13" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAIAAAAEAAAAACAAAAABCAAAAAAABAAAAAAIgAAA=</HashCode>
+      <FileName>Entities\SourceCodeSchema\SolutionFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.SourceCodeSchema.VisualStudioProject" Collapsed="true">
+    <Position X="22" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AaAEBHAACBAAACAAiCoAAAoCgAgAQAAAAAAiFABAAAg=</HashCode>
+      <FileName>Entities\SourceCodeSchema\VisualStudioProject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Events.LoadingEventArgs" Collapsed="true">
+    <Position X="35.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEABAAgAAABgAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Events\LoadingEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Generation.Generator">
+    <Position X="33.75" Y="6.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>CAAQAgEAAAAIAAIAAAAAJAAAAARIAAAEQBAAIACBAAA=</HashCode>
+      <FileName>Generation\Generator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Generation.GeneratorCommands">
+    <Position X="37.5" Y="6.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AICAACACAAAAAACAEBAAACAAgQEB4QAAACACAIASAAA=</HashCode>
+      <FileName>Generation\GeneratorCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.MetaDataExtraction.DatabaseExtractors.DatabaseExtractor" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AHAAAAAAAAgQEAAAAGAABAQAAQAAAABAAIAAADIAAAA=</HashCode>
+      <FileName>MetaDataExtraction\DatabaseExtractors\DatabaseExtractor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.MetaDataExtraction.DatabaseExtractors.SQLServerDatabaseExtractor" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGAAAAAAAAgQEAAAAGAABAAAAAAAAAAAAIAAADIAAAA=</HashCode>
+      <FileName>MetaDataExtraction\DatabaseExtractors\SQLServerDatabaseExtractor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.MetaDataExtraction.DatabaseExtractors.Resources.DataStructure" Collapsed="true">
+    <Position X="33.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YgAABQGEoAAhCCKgkBNDcAYSgQANJVACCkASADgAwJA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.MetaDataExtraction.ExtractorManager" Collapsed="true">
+    <Position X="35.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAgAAAAIgAAIIAAIAAAAAAAAAEACAAIAAAACA=</HashCode>
+      <FileName>MetaDataExtraction\ExtractorManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.SourceCodeExtraction.SourceExtractorManager" Collapsed="true">
+    <Position X="33.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>SourceCodeExtraction\SourceExtractorManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="CodeType" Collapsed="true">
+    <Position X="33.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAADAAAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\MetaDataSchema\Enums\CodeType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ColumnDirection" Collapsed="true">
+    <Position X="35.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\MetaDataSchema\Enums\ColumnDirection.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ColumnType" Collapsed="true">
+    <Position X="37" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAIAAAAAAAAAIAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Entities\MetaDataSchema\Enums\ColumnType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DatabaseTypes" Collapsed="true">
+    <Position X="35.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAIAAAAAAAAAAEAAAAAAAAAAAAAAAAEAAAAAAAACABA=</HashCode>
+      <FileName>Entities\MetaDataSchema\Enums\DatabaseTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Common.Entities.SourceCodeSchema.CompilerTypes" Collapsed="true">
+    <Position X="33.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Entities\SourceCodeSchema\CompilerOptions.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Common.Entities.SourceCodeSchema.VisualStudioVersion" Collapsed="true">
+    <Position X="35.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABACAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Entities\SourceCodeSchema\SolutionFile.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Common.MetaDataExtraction.Type" Collapsed="true">
+    <Position X="33.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAABAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MetaDataExtraction\ExtractorManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Common.SourceCodeExtraction.SourceCodeProjectType" Collapsed="true">
+    <Position X="37" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAIAAAAAAAQAAAA=</HashCode>
+      <FileName>SourceCodeExtraction\SourceExtractorManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,87 @@
+﻿
+<?php
+class <%$$ TableName $$%> {  
+
+
+	#################		 Function Related to "" <%$$ TableName $$%> "" table 		#########################
+  // contacts table <%$$ TableName $$%> ::> [$$<%$$ TableColumnParam,Name $$%>$$]
+  
+	function getLeads($limit = false,$offset = false )
+	{
+			$db = Zend_Registry::get('db');
+			$db->setFetchMode(Zend_Db::FETCH_OBJ);
+			$sql = ""select * from <%$$ TableName $$%> where '1'= '1' "";
+			
+			
+			//var_dump ($sql);
+			if($limit !== false && $offset !== false){
+				$sql .= ""  limit $limit offset $offset"";
+			}		
+			
+			$result = $db->fetchAll($sql);
+			return $result;
+	}
+  
+  
+        function getPagerData($total, $limit, $page )
+       {
+           $total  = (int) $total;
+           $limit    = max((int) $limit, 1);
+           $page     = (int) $page;
+           $numPages = ceil($total / $limit);
+           $page = max($page, 1);
+           $page = min($page, $numPages);
+           $offset = ($page - 1) * $limit;
+		   
+		if ($page <= 1)
+			{
+			$prev= ""<img src=\""/images/prev.png\"" alt=\""prev\"">"";
+			$first = ""<img src=\""/images/first.png\"" alt=\""first\"">"";
+			}
+		else{	
+			$prev= ""<a href=\""javascript:void(loadLeadsGrid("".($page - 1)."","".$limit.""))\"" class=\""pager\""><img src=\""/images/prev.png\"" border=\""0\"" alt=\""prev\""></a>"";	
+			$first = ""<a href=\""javascript:void(loadLeadsGrid(1,"".$limit.""))\"" class=\""pager\""><img src=\""/images/first.png\"" border=\""0\"" alt=\""first\""></a>"";
+			}
+		if ($page == $numPages)	
+			{
+			$next= ""<img src=\""/images/next.png\"" alt=\""next\"">"";
+			$last = ""<img src=\""/images/last.png\"" alt=\""last\"">"";
+			}
+		else{		
+			$next= ""<a href=\""javascript:void(loadLeadsGrid("".($page + 1)."","".$limit.""))\"" class=\""pager\""><img src=\""/images/next.png\"" border=\""0\"" alt=\""next\""></a>"";
+			$last = ""<a href=\""javascript:void(loadLeadsGrid($numPages,"".$limit.""))\"" class=\""pager\""><img src=\""/images/last.png\"" border=\""0\"" alt=\""last\""></a>"";
+			}
+			
+           $ret = new stdClass;
+           $ret->offset   = $offset;
+           $ret->limit    = $limit;
+           $ret->numPages = $numPages;
+           $ret->page     = $page;
+           $ret->next     = $next;
+	       $ret->prev     = $prev;
+           $ret->first     = $first;
+	       $ret->last     = $last;		   		   
+           return $ret;
+       }
+ 
+ 
+ 
+  
+	function addLead([$$ $<%$$ TableColumnParam,DataType $$%> $<%$$ TableColumnParam,Name(FL) $$%>$$])
+	{
+		$db = Zend_Registry::get('db');
+				
+		
+		$leadData = array([$$ '<%$$ TableColumnParam,Name $$%>'=>$<%$$ TableColumnParam,Name $$%>$$]);
+		$db->insert('<%$$ TableName $$%>',$leadData);
+		[$$ $<%$$ TableColumnParam(PK),Name $$%> =  $db->lastInsertId()$$]
+		
+		return [$$ $<%$$ TableColumnParam(PK),Name $$%>$$];
+	}
+	   
+   
+
+
+
+}
+?>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Common.Entities.MetaDataSchema.Column">
+    <Position X="2.75" Y="4.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ASAAAqIBACBFAoAACAIAAABAQAIAIAAEhmAAAAEAEDA=</HashCode>
+      <FileName>Entities\MetaDataSchema\Column.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.Entity">
+    <Position X="8.5" Y="0.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACIAAAQAAAACAAAABAQAQAAgAAAAAAAAABwAAYABA=</HashCode>
+      <FileName>Entities\Entity.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Common.Entities.MetaDataSchema.Database">
+    <Position X="12.25" Y="4.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QhAAEAAAAgAAAAAAACAAQAIAAAAAAAACACAABAIIABg=</HashCode>
+      <FileName>Entities\MetaDataSchema\Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.MetaDataSchema.Function">
+    <Position X="10" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAEAAAAAAAAAAwEABAAACQAAIAQAAAIAAg=</HashCode>
+      <FileName>Entities\MetaDataSchema\Function.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.MetaDataSchema.Project">
+    <Position X="7.25" Y="4.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAEEAAAACAAEgAAIAAAACCABGCAQIBACAIAAA=</HashCode>
+      <FileName>Entities\MetaDataSchema\Project.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.MetaDataSchema.RelationShip">
+    <Position X="16.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAIAgAAAAAAAAAAAEAAAIIQAAAAAAAAAIAgg=</HashCode>
+      <FileName>Entities\MetaDataSchema\RelationShip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.MetaDataSchema.StoredProcedure">
+    <Position X="5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAIAAEAAAAAAAAAAAEAAAAAACAAIAAAAAIAAg=</HashCode>
+      <FileName>Entities\MetaDataSchema\StoredProcedure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.MetaDataSchema.Table">
+    <Position X="14.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAQBAAAAAAAAAAAAAAAQEAAQEAAQAAAAEAAgIAAg=</HashCode>
+      <FileName>Entities\MetaDataSchema\Table.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Entities.MetaDataSchema.View">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAQDAAAAAAAAAAAAAAAQEAAAAAAQAAAAAAAgIAAA=</HashCode>
+      <FileName>Entities\MetaDataSchema\View.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

@@ -1,0 +1,64 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace <%$$ NameSpace $$%>
+{
+	[DataObject(true)]
+	public class <%$$ TableName $$%>
+	{
+		#region Constructors
+
+		public <%$$ TableName $$%>(){}
+
+		#endregion
+
+		#region Mapped Table Properties
+		
+		[$$ 
+			/// <summary>
+			/// This Property represents the <%$$ TableColumn,Name(FU) $$%> which has <%$$ TableColumn,DataType $$%> type
+			/// </summary>
+            private <%$$ TableColumn,DataType $$%> _<%$$ TableColumn,Name(FL) $$%>; <%$$ NewLine $$%>
+			<%$$ DataObjectProperty $$%>
+            public <%$$ TableColumn,DataType $$%> <%$$ TableColumn,Name(FU) $$%>
+            {
+                
+                set
+                {
+					if (!RBMInitiatingEntity && <%$$ TableColumn,Name(FL) $$%> != value)
+                     RBMDataChanged = true;
+					<%$$ TableColumn,Name(FL) $$%> = value;
+                }
+                get
+                {
+                    return <%$$ TableColumn,Name(FL) $$%>;
+                }
+            }
+        <%$$ NewLine $$%>
+        $$]
+		
+		#endregion
+	}
+
+
+}
+
+<?xml version="1.0" encoding="utf-16"?>
+<Database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>009c77f5-c6cb-45ad-8e07-915652bc9bc3</Id>
+  <Name>Qiyas</Name>
+  <EntitySelected>true</EntitySelected>
+  <ParentProject>
+    <Id>46c63de6-1254-4321-b671-d4b83c083e0d</Id>
+    <Name />
+    <EntitySelected>true</EntitySelected>
+    <CreateDate>2015-03-14T22:50:33.104345+02:00</CreateDate>
+    <ServerName>RBM-MLAP</ServerName>
+    <DatabaseType>SQLServer</DatabaseType>
+  </ParentProject>
+  <Tables>
+    <Table>
+      <Id>fa05b5bf-bb5c-4213-90a8-ef9898b934fa</Id>
+      <Name>DepartmentLanguages</Name>
+      <EntitySelected>true</EntitySelected>
